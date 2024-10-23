@@ -1,60 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | News homepage</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
+
 <body>
+  <main>
+    <header>
+      <img src="./assets/images/logo.svg" alt="news homepage banner logo">
+      <nav>
+        <menu>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./index.html">New</a></li>
+          <li><a href="./index.html">Popular</a></li>
+          <li><a href="./index.html">Trending</a></li>
+          <li><a href="./index.html">Categories</a></li>
+        </menu>
+      </nav>
+    </header>
+    <section>
+      <div class="news-homepage__introduction">
+        <picture>
+          <source media="(max-width: 799px)" srcset="./assets/images/image-web-3-mobile.jpg">
+          <source media="(min-width: 800px)" srcset="./assets/images/image-web-3-desktop.jpg">
+          <img src="./assets/images/image-web-3-desktop.jpg" alt="news homepage main image web">
+        </picture>
+        <h1>The Bright Future of Web 3.0?</h1>
+        <p class="news-homepage__description">We dive into the next evolution of the web that claims to put the power of
+          the platforms back into the hands of the
+          people. But is it really fulfilling its promise?</p>
+        <a class="news-homepage__button" href="./index.html">Read more</a>
+      </div>
+      <div class="news-homepage__navigator">
+        <h2>New</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="./index.html">
+                <span class="highlighted-text">Hydrogen VS Electric Cars</span>
+                Will hydrogen-fueled cars ever catch up to EVs?</a>
+            </li>
+            <li>
+              <a href="./index.html">
+                <span class="highlighted-text">The Downsides of AI Artistry</span>
+                What are the possible adverse effects of on-demand AI image generation?</a>
+            </li>
+            <li><a href="./index.html">
+                <span class="highlighted-text">Is VC Funding Drying Up?</span>
+                Private funding by VC firms is down 50% YOY. We take a look at what that means.</a></li>
+          </ul>
 
-  Home
-  New
-  Popular
-  Trending
-  Categories
-
-  The Bright Future of Web 3.0?
-
-  We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. 
-  But is it really fulfilling its promise?
-
-  Read more
-
-  New 
-
-  Hydrogen VS Electric Cars
-  Will hydrogen-fueled cars ever catch up to EVs?
-
-  The Downsides of AI Artistry
-  What are the possible adverse effects of on-demand AI image generation?
-
-  Is VC Funding Drying Up?
-  Private funding by VC firms is down 50% YOY. We take a look at what that means.
-
-  01
-  Reviving Retro PCs
-  What happens when old PCs are given modern upgrades?
-
-  02
-  Top 10 Laptops of 2022
-  Our best picks for various needs and budgets.
-
-  03
-  The Growth of Gaming
-  How the pandemic has sparked fresh opportunities.
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+        </nav>
+      </div>
+      <div class="news-homepage__content-links">
+        <div class="news-item">
+          <img src="./assets/images/image-retro-pcs.jpg" alt="news item image retro pc">
+          <h3><span>01</span>
+            Reviving Retro PCs</h3>
+          <div>What happens when old PCs are given modern upgrades?</div>
+        </div>
+        <div class="news-item">
+          <img src="./assets/images/image-top-laptops.jpg" alt="news item image top laptops">
+          <h3><span>02</span>
+            Top 10 Laptops of 2022</h3>
+          <div>Our best picks for various needs and budgets.</div>
+        </div>
+        <div class="news-item">
+          <img src="./assets/images/image-gaming-growth.jpg" alt="news item image gaming growth">
+          <h3><span>03</span>
+            The Growth of Gaming</h3>
+          <div>How the pandemic has sparked fresh opportunities.</div>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
+
 </html>
