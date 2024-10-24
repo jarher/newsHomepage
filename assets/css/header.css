@@ -1,3 +1,8 @@
+.open-button,
+.close-button {
+  cursor: pointer;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -70,6 +75,10 @@ header {
 
 .main-menu li a:hover {
   color: var(--Soft-red);
+}
+
+.opacity {
+  opacity: 1;
 }
 
 @media screen and (min-width: 1024px) {

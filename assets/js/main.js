@@ -7,14 +7,20 @@ const open_button = document.querySelector(".open-button");
 const close_button = document.querySelector(".close-button");
 
 const functionProps = {
-  firstElement: main_nav,
-  secondElement: menu_container,
-  firstClassName: "main-nav-hidden",
-  secondClassName: "menu-container--collapse",
+  container: main_nav,
+  elementToTransform: menu_container,
+  hideClass: "main-nav-hidden",
+  transformClass: "menu-container--collapse",
+  opacityClass: "opacity",
+  switchDelays: {
+    switchInContainerDelay: 200,
+    switchOutContainerDelay: 1000,
+    elementToTransformDelay: 500,
+  },
 };
 
 //click event listener
 [
-  [open_button, switchIn, functionProps],
-  [close_button, switchOut, functionProps],
-].forEach((array) => eventHandler.clickListener(array));
+  [open_button, switchIn],
+  [close_button, switchOut],
+].forEach((array) => eventHandler.clickListener(array, functionProps));

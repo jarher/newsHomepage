@@ -1,37 +1,72 @@
-function fade(element, isFading) {
-  isFading ? (element.style.opacity = 1) : (element.style.opacity = 0);
-}
-
 function toggleClass(element, className) {
   element.classList.toggle(className);
 }
 
-function switchIn({
-  firstElement,
-  secondElement,
-  firstClassName,
-  secondClassName,
-}) {
-  toggleClass(firstElement, firstClassName);
-  let fadeInterval = setTimeout(() => fade(firstElement, true), 100);
-  let classInterval = setTimeout(
-    () => toggleClass(secondElement, secondClassName),
-    500
-  );
+function destructuring(params) {
+  const { switchDelays, ...rest } = params;
+  const {
+    switchInContainerDelay,
+    switchOutContainerDelay,
+    elementToTransformDelay,
+  } = switchDelays;
+  const {
+    container,
+    elementToTransform,
+    hideClass,
+    opacityClass,
+    transformClass,
+  } = rest;
+  return {
+    container,
+    elementToTransform,
+    hideClass,
+    opacityClass,
+    transformClass,
+    switchInContainerDelay,
+    switchOutContainerDelay,
+    elementToTransformDelay,
+  };
 }
 
-function switchOut({
-  firstElement,
-  secondElement,
-  firstClassName,
-  secondClassName,
-}) {
-  toggleClass(secondElement, secondClassName);
-  let fadeInterval = setTimeout(() => fade(firstElement, false), 500);
-  let classInterval = setTimeout(
-    () => toggleClass(firstElement, firstClassName),
-    1000
-  );
+function switchIn(params) {
+  const {
+    container,
+    elementToTransform,
+    hideClass,
+    opacityClass,
+    transformClass,
+    switchInContainerDelay,
+    elementToTransformDelay,
+  } = destructuring(params);
+
+  toggleClass(container, hideClass);
+  let fadeInterval = setTimeout(() => {
+    toggleClass(container, opacityClass), clearTimeout(fadeInterval);
+  }, switchInContainerDelay);
+  let classInterval = setTimeout(() => {
+    toggleClass(elementToTransform, transformClass),
+      clearTimeout(classInterval);
+  }, elementToTransformDelay);
+}
+
+function switchOut(params) {
+  const {
+    container,
+    elementToTransform,
+    hideClass,
+    opacityClass,
+    transformClass,
+    switchOutContainerDelay,
+    elementToTransformDelay,
+  } = destructuring(params);
+
+  toggleClass(elementToTransform, transformClass);
+  let fadeInterval = setTimeout(() => {
+    toggleClass(container, opacityClass), clearInterval(fadeInterval);
+  }, elementToTransformDelay);
+  let classInterval = setTimeout(() => {
+    toggleClass(container, hideClass), clearTimeout(classInterval);
+  }, switchOutContainerDelay);
 }
 
 export { switchIn, switchOut };

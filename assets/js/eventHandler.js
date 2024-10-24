@@ -1,6 +1,6 @@
 const eventHandler = {
-  clickListener(array) {
-    const [elementToClick, clickFunction, functionProps] = array;
+  clickListener(array, functionProps) {
+    const [elementToClick, clickFunction] = array;
     elementToClick.addEventListener("click", () =>
       clickFunction(functionProps)
     );
