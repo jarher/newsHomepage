@@ -1,10 +1,7 @@
 import eventHandler from "./eventHandler.js";
-import { switchIn, switchOut } from "./eventMethods.js";
 
 const main_nav = document.querySelector(".main-nav");
 const menu_container = document.querySelector(".menu-container");
-const open_button = document.querySelector(".open-button");
-const close_button = document.querySelector(".close-button");
 
 const functionProps = {
   container: main_nav,
@@ -19,8 +16,20 @@ const functionProps = {
   },
 };
 
+const elementsToAttachEvent = {
+  clickEvent: {
+    elementsGroup: [
+      {
+        selector: ".open-button",
+        eventFunction: "open",
+      },
+      {
+        selector: ".close-button",
+        eventFunction: "close",
+      },
+    ],
+  },
+};
+
 //click event listener
-[
-  [open_button, switchIn],
-  [close_button, switchOut],
-].forEach((array) => eventHandler.clickListener(array, functionProps));
+eventHandler.eventListener(functionProps, elementsToAttachEvent);

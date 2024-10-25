@@ -1,10 +1,8 @@
+import { newEvent } from "./eventMethods.js";
+
 const eventHandler = {
-  clickListener(array, functionProps) {
-    const [elementToClick, clickFunction] = array;
-    elementToClick.addEventListener("click", () =>
-      clickFunction(functionProps)
-    );
-  },
+  eventListener: (functionProps, elementsToAttachEvent) =>
+    new newEvent(functionProps, elementsToAttachEvent),
 };
 
 export default eventHandler;

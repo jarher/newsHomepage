@@ -1,3 +1,7 @@
+function getDOMELement(selector) {
+  return document.querySelector(selector);
+}
+
 function toggleClass(element, className) {
   element.classList.toggle(className);
 }
@@ -28,45 +32,56 @@ function destructuring(params) {
   };
 }
 
-function switchIn(params) {
-  const {
-    container,
-    elementToTransform,
-    hideClass,
-    opacityClass,
-    transformClass,
-    switchInContainerDelay,
-    elementToTransformDelay,
-  } = destructuring(params);
+class newEvent {
+  constructor(functionProps, elementsToAttachEvent) {
+    this.props = destructuring(functionProps);
+    this.elementsToAttachEvent = elementsToAttachEvent;
+    this.runEvent();
+  }
 
-  toggleClass(container, hideClass);
-  let fadeInterval = setTimeout(() => {
-    toggleClass(container, opacityClass), clearTimeout(fadeInterval);
-  }, switchInContainerDelay);
-  let classInterval = setTimeout(() => {
-    toggleClass(elementToTransform, transformClass),
-      clearTimeout(classInterval);
-  }, elementToTransformDelay);
+  switchIn(props) {
+    toggleClass(props.container, props.hideClass);
+    let fadeInterval = setTimeout(() => {
+      toggleClass(props.container, props.opacityClass),
+        clearTimeout(fadeInterval);
+    }, props.switchInContainerDelay);
+    let classInterval = setTimeout(() => {
+      toggleClass(props.elementToTransform, props.transformClass),
+        clearTimeout(classInterval);
+    }, props.elementToTransformDelay);
+  }
+
+  switchOut(props) {
+    toggleClass(props.elementToTransform, props.transformClass);
+    let fadeInterval = setTimeout(() => {
+      toggleClass(props.container, props.opacityClass),
+        clearInterval(fadeInterval);
+    }, props.elementToTransformDelay);
+    let classInterval = setTimeout(() => {
+      toggleClass(props.container, props.hideClass),
+        clearTimeout(classInterval);
+    }, props.switchOutContainerDelay);
+  }
+
+  runEvent() {
+    if (this.elementsToAttachEvent.hasOwnProperty("clickEvent")) {
+      const { elementsGroup } = this.elementsToAttachEvent.clickEvent;
+
+      elementsGroup.forEach((elementParams) => {
+        const { selector, eventFunction } = elementParams;
+        const DOMElement = getDOMELement(selector);
+        let functionEvent;
+
+        if (eventFunction === "open") {
+          functionEvent = this.switchIn;
+        }
+        if (eventFunction === "close") {
+          functionEvent = this.switchOut;
+        }
+        DOMElement.addEventListener("click", () => functionEvent(this.props));
+      });
+    }
+  }
 }
 
-function switchOut(params) {
-  const {
-    container,
-    elementToTransform,
-    hideClass,
-    opacityClass,
-    transformClass,
-    switchOutContainerDelay,
-    elementToTransformDelay,
-  } = destructuring(params);
-
-  toggleClass(elementToTransform, transformClass);
-  let fadeInterval = setTimeout(() => {
-    toggleClass(container, opacityClass), clearInterval(fadeInterval);
-  }, elementToTransformDelay);
-  let classInterval = setTimeout(() => {
-    toggleClass(container, hideClass), clearTimeout(classInterval);
-  }, switchOutContainerDelay);
-}
-
-export { switchIn, switchOut };
+export { newEvent };
