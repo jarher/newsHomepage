@@ -1,19 +1,15 @@
-import eventHandler from "./eventHandler.js";
-
-const main_nav = document.querySelector(".main-nav");
-const menu_container = document.querySelector(".menu-container");
+import DOMHandler from "./Menu/DOMHandler.js";
+import eventHandler from "./Menu/eventHandler.js";
 
 const functionProps = {
-  container: main_nav,
-  elementToTransform: menu_container,
+  container: document.querySelector(".main-nav"),
+  elementToTransform: document.querySelector(".menu-container"),
   hideClass: "main-nav-hidden",
   transformClass: "menu-container--collapse",
   opacityClass: "opacity",
-  switchDelays: {
-    switchInContainerDelay: 200,
-    switchOutContainerDelay: 1000,
-    elementToTransformDelay: 500,
-  },
+  switchInContainerDelay: 200,
+  switchOutContainerDelay: 1000,
+  elementToTransformDelay: 500,
 };
 
 const elementsToAttachEvent = {
@@ -21,15 +17,19 @@ const elementsToAttachEvent = {
     elementsGroup: [
       {
         selector: ".open-button",
-        eventFunction: "open",
+        method() {
+          DOMHandler.switchIn(functionProps);
+        },
       },
       {
         selector: ".close-button",
-        eventFunction: "close",
+        method() {
+          DOMHandler.switchOut(functionProps);
+        },
       },
     ],
   },
 };
 
 //click event listener
-eventHandler.eventListener(functionProps, elementsToAttachEvent);
+eventHandler.listener(elementsToAttachEvent, DOMHandler);
