@@ -15,7 +15,7 @@
 .news-item h3 {
   grid-column: 2 / 3;
   grid-row-start: 1;
-  font-size: clamp(0.9rem, 0.3rem + 1vw, 1.1rem);
+  font-size: clamp(0.9rem, 4.85vw, 2.9rem);
   color: var(--Very-dark-blue);
   cursor: pointer;
   transition: color 0.2s ease-in-out;
@@ -56,6 +56,9 @@
     height: 120px;
     object-fit: cover;
   }
+  .news-item h3 {
+    font-size: clamp(0.9rem, 2.6vw, 3rem);
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -69,5 +72,11 @@
   .news-item img {
     height: auto;
     object-fit: contain;
+  }
+  .news-item h3 {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  }
+  .news-item--text {
+    font-size: clamp(0.5rem, 1.2vw, 0.94rem);
   }
 }
