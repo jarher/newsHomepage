@@ -7,7 +7,8 @@ class DOMHandler {
     element.classList.toggle(className);
   }
 
-  static genericTimer(callback, delay) {
+  static genericTimer(props) {
+    const [callback, delay] = props;
     let intervalId = setTimeout(() => {
       callback();
       clearTimeout(intervalId);
@@ -22,8 +23,10 @@ class DOMHandler {
     secondDelay,
   }) {
     firstToggler();
-    this.genericTimer(secondToggler, firstDelay);
-    this.genericTimer(thirdToggler, secondDelay);
+    [
+      [secondToggler, firstDelay],
+      [thirdToggler, secondDelay],
+    ].forEach((props) => this.genericTimer(props));
   }
 
   static switchIn(props) {

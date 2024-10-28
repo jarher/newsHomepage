@@ -22,7 +22,7 @@ class EventListener {
         const { selector, method } = elementParams;
         const DOMElement = this.DOMHandler.getElement(selector);
         DOMElement.addEventListener("click", () => method());
-      });
+      }, this);
     }
   }
 }

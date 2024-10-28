@@ -93,14 +93,10 @@ button {
   border: none;
   outline: none;
 }
-hr {
-  margin: 2.3rem 0;
-  border-color: var(--Dark-grayish-blue);
-}
 
 @media screen and (min-width: 600px) {
   section {
-    column-gap: 1rem;
+    column-gap: 2rem;
   }
 }
 
@@ -117,7 +113,7 @@ hr {
     justify-content: center;
   }
   main {
-    max-width: 74rem;
+    max-width: 69.5rem;
   }
 }
 
@@ -126,6 +122,9 @@ hr {
     padding: 0;
   }
   main {
-    margin: 6rem 0;
+    padding-bottom: 8.5rem;
+  }
+  section {
+    margin-top: 3.3rem;
   }
 }
