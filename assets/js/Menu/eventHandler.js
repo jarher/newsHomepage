@@ -1,13 +1,17 @@
 const eventHandler = {
-  listener: (elementsToAttachEvent, DOMHandler) =>
-    new EventListener(elementsToAttachEvent, DOMHandler),
+  listener: (elementsToAttachEvent, DOMHandler) => {
+    const newEventListener = new EventListener(
+      elementsToAttachEvent,
+      DOMHandler
+    );
+    newEventListener.listen();
+  },
 };
 
 class EventListener {
   constructor(elementsToAttachEvent, DOMHandler) {
     this.elementsToAttachEvent = elementsToAttachEvent;
     this.DOMHandler = DOMHandler;
-    this.listen();
   }
 
   listen() {
