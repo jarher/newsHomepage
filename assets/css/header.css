@@ -8,7 +8,7 @@ header {
   justify-content: space-between;
 }
 .homepage-logo {
-  width: 3.5rem;
+  width: 4rem;
   height: 2.5rem;
 }
 .open-button {
@@ -42,7 +42,7 @@ header {
   position: relative;
   opacity: 1;
   transition: all 0.3s ease-in-out;
-  width: 16.6rem;
+  width: 13rem;
   z-index: 2;
 }
 

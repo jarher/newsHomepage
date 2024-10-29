@@ -27,8 +27,8 @@
 
 .news-homepage__navigator a {
   color: var(--Dark-grayish-blue);
-  line-height: 1.5rem;
-  font-size: clamp(0.86rem, 1.5vw, 0.96rem);
+  line-height: 1.5;
+  font-size: clamp(0.86rem, 1.5vw, 0.93rem);
 }
 
 hr {
@@ -42,13 +42,14 @@ hr {
   }
 
   hr {
-    margin: 1.5rem 0;
+    margin: 1.7rem 0;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .news-homepage__navigator {
     grid-column: 3;
+    padding: 2rem 1.5rem;
   }
 
   .news-homepage__navigator h2 {
@@ -60,9 +61,9 @@ hr {
   }
   .highlighted-text {
     font-size: 1.25rem;
+    margin-bottom: 0.6rem;
   }
   .news-homepage__navigator a {
     color: var(--Grayish-blue);
-    line-height: 1.5rem;
   }
 }

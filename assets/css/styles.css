@@ -47,6 +47,7 @@ html {
   color: var(--Very-dark-blue);
 }
 
+main,
 section,
 .news-homepage__introduction,
 .news-item,
@@ -76,8 +77,11 @@ body {
   position: relative;
 }
 
+main {
+  grid-template-rows: auto;
+  row-gap: 2.3rem;
+}
 section {
-  margin-top: 2.3rem;
   row-gap: 4.3rem;
 }
 
@@ -122,9 +126,7 @@ button {
     padding: 0;
   }
   main {
-    padding-bottom: 8.5rem;
-  }
-  section {
-    margin-top: 3.3rem;
+    row-gap: 3.3rem;
+    margin: 5.5rem 0 8.5rem;
   }
 }
