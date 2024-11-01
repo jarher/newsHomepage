@@ -76,4 +76,4 @@ const switchOut = (props, DOM) => {
   switcher(returnSwitchProperties(arrayValues));
 };
 
-export { switchIn, switchOut };
+export { switchIn, switchOut, genericTimer };

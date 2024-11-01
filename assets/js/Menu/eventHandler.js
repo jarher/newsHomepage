@@ -1,5 +1,5 @@
 import { DOM } from "./DOMHandler.js";
-import { switchIn, switchOut } from "./utils.js";
+import { genericTimer, switchIn, switchOut } from "./utils.js";
 
 class EventListener {
   constructor(functionProps) {
@@ -7,17 +7,22 @@ class EventListener {
   }
 
   handleModalClick = (dataValue) => {
-    if (dataValue === "open-modal") {
+    if (dataValue.dataset.name === "open-modal") {
       return switchIn(this.functionProps, DOM);
     }
-    if (dataValue === "close-modal") {
+    if (dataValue.dataset.name === "close-modal") {
       return switchOut(this.functionProps, DOM);
+    }
+    if (dataValue.href) {
+      switchOut(this.functionProps, DOM);
+      genericTimer([() => (window.location.href = dataValue.href), 1000]);
     }
   };
 
   listen() {
     document.addEventListener("click", (e) => {
-      const dataValue = e.target.dataset.name;
+      e.preventDefault();
+      const dataValue = e.target;
       this.handleModalClick(dataValue);
     });
   }
