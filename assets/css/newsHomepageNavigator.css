@@ -28,7 +28,7 @@
 .news-homepage__navigator a {
   color: var(--Dark-grayish-blue);
   line-height: 1.5;
-  font-size: clamp(0.86rem, 1.5vw, 0.93rem);
+  font-size: clamp(0.86rem, 1.5vw, 1rem);
 }
 
 hr {
@@ -42,7 +42,7 @@ hr {
   }
 
   hr {
-    margin: 1.7rem 0;
+    margin: 1.9rem 0;
   }
 }
 
@@ -60,7 +60,7 @@ hr {
     margin-top: 2rem;
   }
   .highlighted-text {
-    font-size: 1.25rem;
+    font-size: 1.33rem;
     margin-bottom: 0.6rem;
   }
   .news-homepage__navigator a {
