@@ -20,11 +20,15 @@ class EventListener {
   };
 
   listen() {
-    document.addEventListener("click", (e) => {
-      e.preventDefault();
-      const dataValue = e.target;
-      this.handleModalClick(dataValue);
-    });
+    document.addEventListener(
+      "click",
+      (e) => {
+        e.preventDefault();
+        const dataValue = e.target;
+        this.handleModalClick(dataValue);
+      },
+      true
+    );
   }
 }
 

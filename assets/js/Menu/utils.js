@@ -1,8 +1,8 @@
 const genericTimer = (props) => {
   const [callback, delay] = props;
-  let intervalId = setTimeout(() => {
+  let timeoutId = setTimeout(() => {
     callback();
-    clearTimeout(intervalId);
+    clearTimeout(timeoutId);
   }, delay);
 };
 
@@ -51,14 +51,14 @@ const switchIn = (props, DOM) => {
   const container = DOM(containerSelector);
   const elementToTransform = DOM(elementToTransformSelector);
 
-  const arrayValues = [
+  const transitionCallbacksAndDelays = [
     () => container.toggleClass(props.hideClass),
     () => container.toggleClass(props.opacityClass),
     () => elementToTransform.toggleClass(props.transformClass),
     props.switchInContainerDelay,
     props.elementToTransformDelay,
   ];
-  switcher(returnSwitchProperties(arrayValues));
+  switcher(returnSwitchProperties(transitionCallbacksAndDelays));
 };
 
 const switchOut = (props, DOM) => {
@@ -66,14 +66,14 @@ const switchOut = (props, DOM) => {
   const container = DOM(containerSelector);
   const elementToTransform = DOM(elementToTransformSelector);
 
-  const arrayValues = [
+  const transitionCallbacksAndDelays = [
     () => elementToTransform.toggleClass(props.transformClass),
     () => container.toggleClass(props.opacityClass),
     () => container.toggleClass(props.hideClass),
     props.elementToTransformDelay,
     props.switchOutContainerDelay,
   ];
-  switcher(returnSwitchProperties(arrayValues));
+  switcher(returnSwitchProperties(transitionCallbacksAndDelays));
 };
 
 export { switchIn, switchOut, genericTimer };
