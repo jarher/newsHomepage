@@ -8,31 +8,16 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/MenuComponent/styles/menuStyles.css">
   <title>Frontend Mentor | News homepage</title>
 </head>
 
 <body>
   <main>
     <header>
-      <img src="./assets/images/logo.svg" alt="news homepage banner logo" class="homepage-logo">
-      <button class="open-button">
-        <img src="./assets/images/icon-menu.svg" alt="open icon" data-name="open-modal">
-      </button>
-      <nav class="main-nav main-nav-hidden">
-        <div class="menu-container menu-container--collapse">
-          <button class="close-button">
-            <img src="./assets/images/icon-menu-close.svg" alt="close icon" data-name='close-modal'>
-          </button>
-          <menu class="main-menu">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./index.html">New</a></li>
-            <li><a href="./index.html">Popular</a></li>
-            <li><a href="./index.html">Trending</a></li>
-            <li><a href="./index.html">Categories</a></li>
-          </menu>
-        </div>
-
-      </nav>
+      <a href="./index.html" class="homepage-logo">
+        <img src="./assets/images/logo.svg" alt="news homepage banner logo">
+      </a>
     </header>
     <section>
       <div class="news-homepage__introduction">
@@ -96,7 +81,7 @@
       </div>
     </section>
   </main>
-  <script src="./assets/js/main.js" type="module"></script>
+  <script src="./assets/MenuComponent/index.js" type="module"></script>
 </body>
 
 </html>

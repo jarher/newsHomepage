@@ -1,12 +1,19 @@
 import { DOM } from "./DOMHandler.js";
+import { includeNavToHeader } from "./menuTemplate.js";
 import { genericTimer, switchIn, switchOut } from "./utils.js";
 
 class EventListener {
   constructor(functionProps) {
-    this.functionProps = functionProps;
+    this.functionProps = {
+      hideClass: "hidden",
+      transformClass: "menu-collapse",
+      opacityClass: "opacity",
+      ...functionProps,
+    };
+    this.menuList = functionProps.menuList;
   }
 
-  handleModalClick = (dataValue) => {
+  handleModalClick(dataValue) {
     if (dataValue.dataset.name === "open-modal") {
       return switchIn(this.functionProps, DOM);
     }
@@ -17,7 +24,7 @@ class EventListener {
       switchOut(this.functionProps, DOM);
       genericTimer([() => (window.location.href = dataValue.href), 1000]);
     }
-  };
+  }
 
   listen() {
     document.addEventListener(
@@ -29,6 +36,10 @@ class EventListener {
       },
       true
     );
+
+    document.addEventListener("DOMContentLoaded", () => {
+      includeNavToHeader(this.menuList, DOM);
+    });
   }
 }
 
