@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/news-homepage-html-css-js-8I2Hat0E01]
 - Live Site URL: [https://jarher.github.io/newsHomepage/]
 
 
