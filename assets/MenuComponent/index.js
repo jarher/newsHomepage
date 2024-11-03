@@ -1,4 +1,4 @@
-import runModalEvent from "./js/eventHandler.js";
+import runMenuEvent from "./js/eventHandler.js";
 
 const functionProps = {
   switchInContainerDelay: 200,
@@ -13,4 +13,4 @@ const functionProps = {
   ],
 };
 
-runModalEvent(functionProps);
+runMenuEvent(functionProps);

@@ -43,7 +43,7 @@ class EventListener {
   }
 }
 
-const runModalEvent = (functionProps) =>
+const runMenuEvent = (functionProps) =>
   new EventListener(functionProps).listen();
 
-export default runModalEvent;
+export default runMenuEvent;
